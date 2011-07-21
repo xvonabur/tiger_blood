@@ -7,24 +7,69 @@
 //
 
 #import "sampleAppDelegate.h"
+#import "HomeViewController.h"
+#import "Movie.h"
 
 @implementation sampleAppDelegate
 
 @synthesize window;
-@synthesize tabBarController;
+@synthesize tabBarController, moviesArray;
 
+
+
+- (void) copyDatabaseIfNeeded {
+    //Using NSFileManager we can perform many file system operations. Using the “fileManager” object we check if the database exists or not, if it doesn’t exists then we copy it to the user’s phone from the application bundle.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSString *dbPath = [self getDBPath];
+    BOOL success = [fileManager fileExistsAtPath:dbPath];
+    
+    if(!success) {
+        
+        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"SQL.sqlite"];
+        success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
+        
+        if (!success)
+            NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+    }
+}
+
+- (NSString *) getDBPath {
+    //Search for standard documents using NSSearchPathForDirectoriesInDomains
+    //First Param = Searching the documents directory
+    //Second Param = Searching the Users directory and not the System
+    //Expand any tildes and identify home directories.
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
+    NSString *documentsDir = [paths objectAtIndex:0];
+    return [documentsDir stringByAppendingPathComponent:@"SQL.sqlite"];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+      
+    //Copy database to the user's phone if needed.
+    [self copyDatabaseIfNeeded];
+    
+    //Initialize the movies array.
+    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
+    self.moviesArray = tempArray;
+    [tempArray release];
+    
+    //Once the db is copied, get the initial data to display on the screen.
+    [Movie getInitialDataToDisplay:[self getDBPath]];
+    [self copyDatabaseIfNeeded];
+    
     controller = [[HomeViewController alloc] init];
     controller.view.frame = CGRectMake(0, 20, 320, 460);
     
-
     // Override point for customization after application launch.
     [window addSubview:controller.view];
-    [window addSubview:tabBarController.view];
+   // [window addSubview:tabBarController.view];
+    
+   
     
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -70,6 +115,7 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+    [Movie finalizeStatements];
 }
 
 - (void)dealloc

@@ -11,21 +11,31 @@
 #import "FBLoginButton.h"
 
 
+
 @interface HomeViewController : UIViewController
 <FBRequestDelegate,
 FBDialogDelegate,
 FBSessionDelegate>{
+    
+    
+
     IBOutlet UILabel* _label;
     IBOutlet FBLoginButton* _fbButton;
     IBOutlet UIButton* _publishButton;
     Facebook* _facebook;
     NSArray* _permissions;
+    IBOutlet UITableView* table_view;
+     
+
 }
 
-@property(nonatomic, retain) UILabel* label;
 
+
+@property(nonatomic, retain) UILabel* label;
+@property(nonatomic, retain) UITableView* table_view;
 @property(readonly) Facebook *facebook;
 
 -(IBAction)fbButtonClick:(id)sender;
 -(IBAction)publishStream:(id)sender;
+
 @end

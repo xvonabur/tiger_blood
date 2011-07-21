@@ -23,8 +23,9 @@
 		84140A5613D5797E0093E775 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A4813D5797E0093E775 /* SBJsonBase.m */; };
 		84140A5713D5797E0093E775 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A4A13D5797E0093E775 /* SBJsonParser.m */; };
 		84140A5813D5797E0093E775 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A4C13D5797E0093E775 /* SBJsonWriter.m */; };
+		8437BF9F13D728A4000261D1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437BF9D13D728A3000261D1 /* TableViewController.m */; };
+		8437BFA013D728A4000261D1 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437BF9E13D728A3000261D1 /* TableViewController.xib */; };
 		84455CBF13D59C2500EB0442 /* FBLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84455CBE13D59C2500EB0442 /* FBLoginButton.m */; };
-		84455CCA13D5B54300EB0442 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84455CC913D5B54300EB0442 /* libsqlite3.dylib */; };
 		845BD50F13D5751F0029FACB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD50E13D5751F0029FACB /* UIKit.framework */; };
 		845BD51113D5751F0029FACB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51013D5751F0029FACB /* Foundation.framework */; };
 		845BD51313D5751F0029FACB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51213D5751F0029FACB /* CoreGraphics.framework */; };
@@ -32,6 +33,9 @@
 		845BD51C13D575200029FACB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845BD51B13D575200029FACB /* main.m */; };
 		845BD51F13D575200029FACB /* sampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845BD51E13D575200029FACB /* sampleAppDelegate.m */; };
 		845BD52213D575200029FACB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845BD52013D575200029FACB /* MainWindow.xib */; };
+		84A5BBA513D7014C0074591C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A5BBA413D7014C0074591C /* libsqlite3.dylib */; };
+		84A5BBB213D716FD0074591C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5BBB113D716FD0074591C /* Movie.m */; };
+		84E4564013D84AB9005B7F1B /* SQL.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84E4563F13D84AB9005B7F1B /* SQL.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,9 +69,11 @@
 		84140A4A13D5797E0093E775 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		84140A4B13D5797E0093E775 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		84140A4C13D5797E0093E775 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		8437BF9C13D728A3000261D1 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		8437BF9D13D728A3000261D1 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		8437BF9E13D728A3000261D1 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		84455CBD13D59C2500EB0442 /* FBLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginButton.h; sourceTree = "<group>"; };
 		84455CBE13D59C2500EB0442 /* FBLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginButton.m; sourceTree = "<group>"; };
-		84455CC913D5B54300EB0442 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsqlite3.dylib; sourceTree = "<group>"; };
 		845BD50A13D5751F0029FACB /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845BD50E13D5751F0029FACB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		845BD51013D5751F0029FACB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -79,6 +85,10 @@
 		845BD51D13D575200029FACB /* sampleAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sampleAppDelegate.h; sourceTree = "<group>"; };
 		845BD51E13D575200029FACB /* sampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sampleAppDelegate.m; sourceTree = "<group>"; };
 		845BD52113D575200029FACB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		84A5BBA413D7014C0074591C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		84A5BBB013D716FD0074591C /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		84A5BBB113D716FD0074591C /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		84E4563F13D84AB9005B7F1B /* SQL.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQL.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +96,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A5BBA513D7014C0074591C /* libsqlite3.dylib in Frameworks */,
 				845BD50F13D5751F0029FACB /* UIKit.framework in Frameworks */,
 				845BD51113D5751F0029FACB /* Foundation.framework in Frameworks */,
 				845BD51313D5751F0029FACB /* CoreGraphics.framework in Frameworks */,
-				84455CCA13D5B54300EB0442 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +148,8 @@
 		845BD4FF13D5751F0029FACB = {
 			isa = PBXGroup;
 			children = (
+				84A5BBB313D7181B0074591C /* Resources */,
+				84A5BBA413D7014C0074591C /* libsqlite3.dylib */,
 				845BD51413D5751F0029FACB /* sample */,
 				845BD50D13D5751F0029FACB /* Frameworks */,
 				845BD50B13D5751F0029FACB /* Products */,
@@ -156,7 +168,6 @@
 		845BD50D13D5751F0029FACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84455CC913D5B54300EB0442 /* libsqlite3.dylib */,
 				845BD50E13D5751F0029FACB /* UIKit.framework */,
 				845BD51013D5751F0029FACB /* Foundation.framework */,
 				845BD51213D5751F0029FACB /* CoreGraphics.framework */,
@@ -167,11 +178,13 @@
 		845BD51413D5751F0029FACB /* sample */ = {
 			isa = PBXGroup;
 			children = (
-				84140A2813D577CD0093E775 /* HomeViewController.h */,
-				84140A2913D577CD0093E775 /* HomeViewController.m */,
-				84140A2A13D577CD0093E775 /* HomeViewController.xib */,
 				845BD51D13D575200029FACB /* sampleAppDelegate.h */,
 				845BD51E13D575200029FACB /* sampleAppDelegate.m */,
+				84140A2813D577CD0093E775 /* HomeViewController.h */,
+				84140A2913D577CD0093E775 /* HomeViewController.m */,
+				84A5BBB013D716FD0074591C /* Movie.h */,
+				84A5BBB113D716FD0074591C /* Movie.m */,
+				84140A2A13D577CD0093E775 /* HomeViewController.xib */,
 				845BD52013D575200029FACB /* MainWindow.xib */,
 				845BD51513D5751F0029FACB /* Supporting Files */,
 				84140A2E13D577E90093E775 /* ChannelsViewController.h */,
@@ -179,6 +192,9 @@
 				84140A3013D577E90093E775 /* ChannelsViewController.xib */,
 				84455CBD13D59C2500EB0442 /* FBLoginButton.h */,
 				84455CBE13D59C2500EB0442 /* FBLoginButton.m */,
+				8437BF9C13D728A3000261D1 /* TableViewController.h */,
+				8437BF9D13D728A3000261D1 /* TableViewController.m */,
+				8437BF9E13D728A3000261D1 /* TableViewController.xib */,
 			);
 			path = sample;
 			sourceTree = "<group>";
@@ -192,6 +208,14 @@
 				845BD51B13D575200029FACB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A5BBB313D7181B0074591C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				84E4563F13D84AB9005B7F1B /* SQL.sqlite */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +271,8 @@
 				84140A3213D577E90093E775 /* ChannelsViewController.xib in Resources */,
 				84140A4E13D5797E0093E775 /* FBConnect.bundle in Resources */,
 				84140A4F13D5797E0093E775 /* FBDialog.bundle in Resources */,
+				8437BFA013D728A4000261D1 /* TableViewController.xib in Resources */,
+				84E4564013D84AB9005B7F1B /* SQL.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +298,8 @@
 				84140A5713D5797E0093E775 /* SBJsonParser.m in Sources */,
 				84140A5813D5797E0093E775 /* SBJsonWriter.m in Sources */,
 				84455CBF13D59C2500EB0442 /* FBLoginButton.m in Sources */,
+				84A5BBB213D716FD0074591C /* Movie.m in Sources */,
+				8437BF9F13D728A4000261D1 /* TableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +366,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/sample-Prefix.pch";
 				INFOPLIST_FILE = "sample/sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -355,6 +384,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "sample/sample-Prefix.pch";
 				INFOPLIST_FILE = "sample/sample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",

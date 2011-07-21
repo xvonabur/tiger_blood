@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "FBConnect.h"
+#import "TableViewController.h"
 
 static NSString* kAppId = @"243607465668519";
 
@@ -15,6 +16,7 @@ static NSString* kAppId = @"243607465668519";
 
 @implementation HomeViewController
 @synthesize label = _label, facebook = _facebook;
+@synthesize table_view;
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // UIViewController
 
@@ -44,18 +46,27 @@ static NSString* kAppId = @"243607465668519";
     _facebook = [[Facebook alloc] initWithAppId:kAppId];
     _facebook.accessToken = [[NSUserDefaults standardUserDefaults] stringForKey:@"AccessToken"];
     _facebook.expirationDate = (NSDate *) [[NSUserDefaults standardUserDefaults] objectForKey:@"ExpirationDate"];
-    
+     
+     
+  
     if ([_facebook isSessionValid] == NO) { 
         [self.label setText:@"Please log in"];
         _publishButton.hidden = YES;
         _fbButton.isLoggedIn = NO;
+        table_view.scrollEnabled = NO;
+        self.view.backgroundColor = [UIColor grayColor];
         [_fbButton updateImage];
     } else {
         [self.label setText:@"logged in"];
         _publishButton.hidden = NO;
         _fbButton.isLoggedIn = YES;
+        table_view.scrollEnabled = YES;
+       self.view.backgroundColor = [UIColor whiteColor];
+       
+        
         [_fbButton updateImage];
     }
+    
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -64,9 +75,9 @@ static NSString* kAppId = @"243607465668519";
 - (void)dealloc {
     [_label release];
     [_fbButton release];
-
+    
     [_publishButton release];
-
+    
     [_facebook release];
     [_permissions release];
     [super dealloc];
@@ -148,6 +159,9 @@ static NSString* kAppId = @"243607465668519";
     [self.label setText:@"logged in"];
     _publishButton.hidden = NO;
     _fbButton.isLoggedIn = YES;
+    self.view.backgroundColor = [UIColor whiteColor];
+    table_view.scrollEnabled = YES;
+    table_view.allowsSelection = YES;
     [_fbButton updateImage];
     [[NSUserDefaults standardUserDefaults] setObject:self.facebook.accessToken forKey:@"AccessToken"];
     [[NSUserDefaults standardUserDefaults] setObject:self.facebook.expirationDate forKey:@"ExpirationDate"];
@@ -165,7 +179,9 @@ static NSString* kAppId = @"243607465668519";
  */
 - (void)fbDidLogout {
     [self.label setText:@"Please log in"];
-
+    self.view.backgroundColor = [UIColor grayColor];
+    table_view.scrollEnabled = NO;
+     table_view.allowsSelection = NO;
     _publishButton.hidden        = YES;
     _fbButton.isLoggedIn         = NO;
     [_fbButton updateImage];
@@ -196,25 +212,25 @@ static NSString* kAppId = @"243607465668519";
  * (void)request:(FBRequest *)request
  *      didReceiveResponse:(NSURLResponse *)response
  
-- (void)request:(FBRequest *)request didLoad:(id)result {
-    if ([result isKindOfClass:[NSArray class]]) {
-        result = [result objectAtIndex:0];
-    }
-    if ([result objectForKey:@"owner"]) {
-        [self.label setText:@"Photo upload Success"];
-    } else {
-        [self.label setText:[result objectForKey:@"name"]];
-    }
-};
+ - (void)request:(FBRequest *)request didLoad:(id)result {
+ if ([result isKindOfClass:[NSArray class]]) {
+ result = [result objectAtIndex:0];
+ }
+ if ([result objectForKey:@"owner"]) {
+ [self.label setText:@"Photo upload Success"];
+ } else {
+ [self.label setText:[result objectForKey:@"name"]];
+ }
+ };
  */
 
 /**
  * Called when an error prevents the Facebook API request from completing
  * successfully.
-
-- (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
-    [self.label setText:[error localizedDescription]];
-};
+ 
+ - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
+ [self.label setText:[error localizedDescription]];
+ };
  */
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -243,7 +259,7 @@ static NSString* kAppId = @"243607465668519";
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
