@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
+//#import "sampleAppDelegate.h"
+#import "Movies.h"
 
-@class Movie;
+//@class Movie;
 
-@interface TableViewController : UITableViewController {
-    sampleAppDelegate *appDelegate;
-    
+@interface TableViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
+  
+    NSArray *movies;
+    NSFetchedResultsController *fetchedResultsController;
+    NSManagedObjectContext *managedObjectContext;
 }
 
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSArray *movies;
 
 @end

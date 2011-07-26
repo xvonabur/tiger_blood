@@ -7,10 +7,11 @@
 //
 
 #import "TableViewController.h"
-#import "Movie.h"
+#import "sampleAppDelegate.h"
+
 
 @implementation TableViewController
-
+@synthesize fetchedResultsController, managedObjectContext, movies;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,6 +24,9 @@
 
 - (void)dealloc
 {
+    self.movies = nil;
+    self.managedObjectContext = nil;
+    
     [super dealloc];
 }
 
@@ -38,19 +42,28 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+      sampleAppDelegate *appDelegate;
+      appDelegate = [[UIApplication sharedApplication] delegate];
+      NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    
+    //NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *entityDesc = [NSEntityDescription    
+                                       entityForName:@"Movies" inManagedObjectContext:context];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc]; 
+    NSError *error;
+    self.movies = [context executeFetchRequest:request error:&error];
 
-   
-    
-    appDelegate = (sampleAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    self.title = @"Movie List";
+
+         
+    [request release];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -98,7 +111,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
    
-        return [appDelegate.moviesArray count];
+   
+    return [movies count];
     
 }
 
@@ -111,12 +125,10 @@
         cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    //Get the object from the array.
-    Movie *movieObj = [appDelegate.moviesArray objectAtIndex:indexPath.row];
-    
-    //Set the coffename.
-    cell.textLabel.text  = movieObj.movieName;
-    
+    Movies *info = [movies objectAtIndex:indexPath.row];
+    cell.textLabel.text = info.name;
+
+
     // Set up the cell
     return cell;
    

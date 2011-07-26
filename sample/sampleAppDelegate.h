@@ -8,26 +8,33 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
-#import "TabsForFaceController.h"
+#import <CoreData/CoreData.h>
+#import "TableViewController.h"
 
-@class Movie;
+//@class Movie;
 
 @interface sampleAppDelegate : NSObject <UIApplicationDelegate> {
+    NSManagedObjectModel *managedObjectModel;
+    NSManagedObjectContext *managedObjectContext;
+    NSPersistentStoreCoordinator *persistentStoreCoordinator;
+    
+    
     UITabBarController*  tabBarController;
     UIWindow *window;
     HomeViewController* controller;
+    TableViewController* table_controller;
     
-    NSMutableArray *moviesArray;
 }
 
-@property (nonatomic, retain) NSMutableArray *moviesArray;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (NSString *)applicationDocumentsDirectory;
+
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 
-
-//"copyDatabaseIfNeeded" is used to copy the database on the user’s phone when the application is finished launching. “getDBPath” gets the database location on the user’s phone.
-- (void) copyDatabaseIfNeeded;
-- (NSString *) getDBPath;
 
 
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FBConnect.h"
 #import "FBLoginButton.h"
+#import <CoreData/CoreData.h>
 
 
 
@@ -17,7 +18,8 @@
 FBDialogDelegate,
 FBSessionDelegate>{
     
-    
+   // NSFetchedResultsController *fetchedResultsController;
+   // NSManagedObjectContext *managedObjectContext;
 
     IBOutlet UILabel* _label;
     IBOutlet FBLoginButton* _fbButton;
@@ -29,7 +31,8 @@ FBSessionDelegate>{
 
 }
 
-
+//@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+//@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property(nonatomic, retain) UILabel* label;
 @property(nonatomic, retain) UITableView* table_view;

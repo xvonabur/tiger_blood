@@ -8,66 +8,110 @@
 
 #import "sampleAppDelegate.h"
 #import "HomeViewController.h"
-#import "Movie.h"
+
 
 @implementation sampleAppDelegate
 
-@synthesize window;
-@synthesize tabBarController, moviesArray;
+@synthesize window, managedObjectModel, managedObjectContext,persistentStoreCoordinator;
+@synthesize tabBarController;
 
-
-
-- (void) copyDatabaseIfNeeded {
-    //Using NSFileManager we can perform many file system operations. Using the “fileManager” object we check if the database exists or not, if it doesn’t exists then we copy it to the user’s phone from the application bundle.
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSString *dbPath = [self getDBPath];
-    BOOL success = [fileManager fileExistsAtPath:dbPath];
-    
-    if(!success) {
-        
-        NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"SQL.sqlite"];
-        success = [fileManager copyItemAtPath:defaultDBPath toPath:dbPath error:&error];
-        
-        if (!success)
-            NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+- (NSManagedObjectContext *) managedObjectContext {
+    if (managedObjectContext != nil) {
+        return managedObjectContext;
     }
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        managedObjectContext = [[NSManagedObjectContext alloc] init];
+        [managedObjectContext setPersistentStoreCoordinator: coordinator];
+    }
+    
+    return managedObjectContext;
 }
 
-- (NSString *) getDBPath {
-    //Search for standard documents using NSSearchPathForDirectoriesInDomains
-    //First Param = Searching the documents directory
-    //Second Param = Searching the Users directory and not the System
-    //Expand any tildes and identify home directories.
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory , NSUserDomainMask, YES);
-    NSString *documentsDir = [paths objectAtIndex:0];
-    return [documentsDir stringByAppendingPathComponent:@"SQL.sqlite"];
+- (NSManagedObjectModel *)managedObjectModel {
+    if (managedObjectModel != nil) {
+        return managedObjectModel;
+    }
+    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];
+    
+    return managedObjectModel;
 }
+
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator {
+    if (persistentStoreCoordinator != nil) {
+        return persistentStoreCoordinator;
+    }
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory]
+                                               stringByAppendingPathComponent: @"sample.sqlite"]];
+    NSError *error = nil;
+    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]
+                                  initWithManagedObjectModel:[self managedObjectModel]];
+    if(![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                 configuration:nil URL:storeUrl options:nil error:&error]) {
+        /*Error for store creation should be handled in here*/
+    }
+    
+    return persistentStoreCoordinator;
+}
+
+- (NSString *)applicationDocumentsDirectory {
+    return [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+}
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-      
-    //Copy database to the user's phone if needed.
-    [self copyDatabaseIfNeeded];
     
-    //Initialize the movies array.
-    NSMutableArray *tempArray = [[NSMutableArray alloc] init];
-    self.moviesArray = tempArray;
-    [tempArray release];
+
     
-    //Once the db is copied, get the initial data to display on the screen.
-    [Movie getInitialDataToDisplay:[self getDBPath]];
-    [self copyDatabaseIfNeeded];
+  
+    table_controller.managedObjectContext = self.managedObjectContext;  
+    //NSManagedObjectContext *context = [self managedObjectContext];
     
+    
+    NSEntityDescription *entityDesc = [NSEntityDescription    
+                                       entityForName:@"Movies" inManagedObjectContext:managedObjectContext];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDesc]; 
+    NSError *error;
+    NSArray *temp_arr;
+    temp_arr = [managedObjectContext executeFetchRequest:request error:&error];
+   
+//initial inserting data to db
+    if ([temp_arr count] == 0)
+    {
+        NSManagedObject *newMovie;
+        newMovie = [NSEntityDescription
+                    insertNewObjectForEntityForName:@"Movies"
+                    inManagedObjectContext:managedObjectContext];
+        [newMovie setValue:@"LOST" forKey:@"name"];
+        [managedObjectContext save:&error];
+        
+        NSManagedObject *newMovie1;
+        newMovie1 = [NSEntityDescription
+                     insertNewObjectForEntityForName:@"Movies"
+                     inManagedObjectContext:managedObjectContext];
+        [newMovie1 setValue:@"Friends" forKey:@"name"];
+        [managedObjectContext save:&error];
+        
+        NSManagedObject *newMovie2;
+        newMovie2 = [NSEntityDescription
+                     insertNewObjectForEntityForName:@"Movies"
+                     inManagedObjectContext:managedObjectContext];
+        [newMovie2 setValue:@"Two and a Half men" forKey:@"name"];
+        [managedObjectContext save:&error];
+
+    }
+  //  [temp_arr release];
+    [request release];
+
     controller = [[HomeViewController alloc] init];
     controller.view.frame = CGRectMake(0, 20, 320, 460);
     
     // Override point for customization after application launch.
     [window addSubview:controller.view];
    // [window addSubview:tabBarController.view];
-    
-   
-    
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -115,7 +159,7 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
-    [Movie finalizeStatements];
+    //[Movie finalizeStatements];
 }
 
 - (void)dealloc
@@ -123,6 +167,11 @@
     
     [window release];
     [controller release];
+    [managedObjectContext release];
+    [managedObjectModel release];
+    [persistentStoreCoordinator release];
+    [tabBarController release];
+    [table_controller release];
     [super dealloc];
 }
 

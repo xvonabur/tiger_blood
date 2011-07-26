@@ -26,6 +26,10 @@
 		8437BF9F13D728A4000261D1 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8437BF9D13D728A3000261D1 /* TableViewController.m */; };
 		8437BFA013D728A4000261D1 /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8437BF9E13D728A3000261D1 /* TableViewController.xib */; };
 		84455CBF13D59C2500EB0442 /* FBLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84455CBE13D59C2500EB0442 /* FBLoginButton.m */; };
+		8445D11113DBEA2A006B62B6 /* sample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8445D10F13DBEA2A006B62B6 /* sample.xcdatamodeld */; };
+		8445D11313DBEC73006B62B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8445D11213DBEC73006B62B6 /* CoreData.framework */; };
+		8445D11E13DC02C1006B62B6 /* sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8445D11D13DC02C1006B62B6 /* sample.sqlite */; };
+		8445D12113DC04E3006B62B6 /* Movies.m in Sources */ = {isa = PBXBuildFile; fileRef = 8445D12013DC04E3006B62B6 /* Movies.m */; };
 		845BD50F13D5751F0029FACB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD50E13D5751F0029FACB /* UIKit.framework */; };
 		845BD51113D5751F0029FACB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51013D5751F0029FACB /* Foundation.framework */; };
 		845BD51313D5751F0029FACB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51213D5751F0029FACB /* CoreGraphics.framework */; };
@@ -34,8 +38,6 @@
 		845BD51F13D575200029FACB /* sampleAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845BD51E13D575200029FACB /* sampleAppDelegate.m */; };
 		845BD52213D575200029FACB /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845BD52013D575200029FACB /* MainWindow.xib */; };
 		84A5BBA513D7014C0074591C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A5BBA413D7014C0074591C /* libsqlite3.dylib */; };
-		84A5BBB213D716FD0074591C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A5BBB113D716FD0074591C /* Movie.m */; };
-		84E4564013D84AB9005B7F1B /* SQL.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 84E4563F13D84AB9005B7F1B /* SQL.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,11 @@
 		8437BF9E13D728A3000261D1 /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		84455CBD13D59C2500EB0442 /* FBLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBLoginButton.h; sourceTree = "<group>"; };
 		84455CBE13D59C2500EB0442 /* FBLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBLoginButton.m; sourceTree = "<group>"; };
+		8445D11013DBEA2A006B62B6 /* sample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = sample.xcdatamodel; sourceTree = "<group>"; };
+		8445D11213DBEC73006B62B6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		8445D11D13DC02C1006B62B6 /* sample.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.sqlite; sourceTree = "<group>"; };
+		8445D11F13DC04E3006B62B6 /* Movies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Movies.h; path = ../Movies.h; sourceTree = "<group>"; };
+		8445D12013DC04E3006B62B6 /* Movies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Movies.m; path = ../Movies.m; sourceTree = "<group>"; };
 		845BD50A13D5751F0029FACB /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845BD50E13D5751F0029FACB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		845BD51013D5751F0029FACB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,9 +93,6 @@
 		845BD51E13D575200029FACB /* sampleAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sampleAppDelegate.m; sourceTree = "<group>"; };
 		845BD52113D575200029FACB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		84A5BBA413D7014C0074591C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		84A5BBB013D716FD0074591C /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		84A5BBB113D716FD0074591C /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
-		84E4563F13D84AB9005B7F1B /* SQL.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = SQL.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8445D11313DBEC73006B62B6 /* CoreData.framework in Frameworks */,
 				84A5BBA513D7014C0074591C /* libsqlite3.dylib in Frameworks */,
 				845BD50F13D5751F0029FACB /* UIKit.framework in Frameworks */,
 				845BD51113D5751F0029FACB /* Foundation.framework in Frameworks */,
@@ -145,11 +150,48 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		844983CB13DD4C00002B3880 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8445D11F13DC04E3006B62B6 /* Movies.h */,
+				8445D12013DC04E3006B62B6 /* Movies.m */,
+				84455CBD13D59C2500EB0442 /* FBLoginButton.h */,
+				84455CBE13D59C2500EB0442 /* FBLoginButton.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		844983CC13DD4C23002B3880 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				845BD51D13D575200029FACB /* sampleAppDelegate.h */,
+				845BD51E13D575200029FACB /* sampleAppDelegate.m */,
+				84140A2813D577CD0093E775 /* HomeViewController.h */,
+				84140A2913D577CD0093E775 /* HomeViewController.m */,
+				84140A2E13D577E90093E775 /* ChannelsViewController.h */,
+				84140A2F13D577E90093E775 /* ChannelsViewController.m */,
+				8437BF9C13D728A3000261D1 /* TableViewController.h */,
+				8437BF9D13D728A3000261D1 /* TableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		844983CD13DD4C44002B3880 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				84140A2A13D577CD0093E775 /* HomeViewController.xib */,
+				845BD52013D575200029FACB /* MainWindow.xib */,
+				84140A3013D577E90093E775 /* ChannelsViewController.xib */,
+				8437BF9E13D728A3000261D1 /* TableViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		845BD4FF13D5751F0029FACB = {
 			isa = PBXGroup;
 			children = (
+				8445D10F13DBEA2A006B62B6 /* sample.xcdatamodeld */,
 				84A5BBB313D7181B0074591C /* Resources */,
-				84A5BBA413D7014C0074591C /* libsqlite3.dylib */,
 				845BD51413D5751F0029FACB /* sample */,
 				845BD50D13D5751F0029FACB /* Frameworks */,
 				845BD50B13D5751F0029FACB /* Products */,
@@ -168,6 +210,7 @@
 		845BD50D13D5751F0029FACB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8445D11213DBEC73006B62B6 /* CoreData.framework */,
 				845BD50E13D5751F0029FACB /* UIKit.framework */,
 				845BD51013D5751F0029FACB /* Foundation.framework */,
 				845BD51213D5751F0029FACB /* CoreGraphics.framework */,
@@ -178,23 +221,10 @@
 		845BD51413D5751F0029FACB /* sample */ = {
 			isa = PBXGroup;
 			children = (
-				845BD51D13D575200029FACB /* sampleAppDelegate.h */,
-				845BD51E13D575200029FACB /* sampleAppDelegate.m */,
-				84140A2813D577CD0093E775 /* HomeViewController.h */,
-				84140A2913D577CD0093E775 /* HomeViewController.m */,
-				84A5BBB013D716FD0074591C /* Movie.h */,
-				84A5BBB113D716FD0074591C /* Movie.m */,
-				84140A2A13D577CD0093E775 /* HomeViewController.xib */,
-				845BD52013D575200029FACB /* MainWindow.xib */,
+				844983CD13DD4C44002B3880 /* Views */,
+				844983CC13DD4C23002B3880 /* Controllers */,
+				844983CB13DD4C00002B3880 /* Models */,
 				845BD51513D5751F0029FACB /* Supporting Files */,
-				84140A2E13D577E90093E775 /* ChannelsViewController.h */,
-				84140A2F13D577E90093E775 /* ChannelsViewController.m */,
-				84140A3013D577E90093E775 /* ChannelsViewController.xib */,
-				84455CBD13D59C2500EB0442 /* FBLoginButton.h */,
-				84455CBE13D59C2500EB0442 /* FBLoginButton.m */,
-				8437BF9C13D728A3000261D1 /* TableViewController.h */,
-				8437BF9D13D728A3000261D1 /* TableViewController.m */,
-				8437BF9E13D728A3000261D1 /* TableViewController.xib */,
 			);
 			path = sample;
 			sourceTree = "<group>";
@@ -213,7 +243,8 @@
 		84A5BBB313D7181B0074591C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				84E4563F13D84AB9005B7F1B /* SQL.sqlite */,
+				84A5BBA413D7014C0074591C /* libsqlite3.dylib */,
+				8445D11D13DC02C1006B62B6 /* sample.sqlite */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -272,7 +303,7 @@
 				84140A4E13D5797E0093E775 /* FBConnect.bundle in Resources */,
 				84140A4F13D5797E0093E775 /* FBDialog.bundle in Resources */,
 				8437BFA013D728A4000261D1 /* TableViewController.xib in Resources */,
-				84E4564013D84AB9005B7F1B /* SQL.sqlite in Resources */,
+				8445D11E13DC02C1006B62B6 /* sample.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,8 +329,9 @@
 				84140A5713D5797E0093E775 /* SBJsonParser.m in Sources */,
 				84140A5813D5797E0093E775 /* SBJsonWriter.m in Sources */,
 				84455CBF13D59C2500EB0442 /* FBLoginButton.m in Sources */,
-				84A5BBB213D716FD0074591C /* Movie.m in Sources */,
 				8437BF9F13D728A4000261D1 /* TableViewController.m in Sources */,
+				8445D11113DBEA2A006B62B6 /* sample.xcdatamodeld in Sources */,
+				8445D12113DC04E3006B62B6 /* Movies.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +449,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8445D10F13DBEA2A006B62B6 /* sample.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8445D11013DBEA2A006B62B6 /* sample.xcdatamodel */,
+			);
+			currentVersion = 8445D11013DBEA2A006B62B6 /* sample.xcdatamodel */;
+			path = sample.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 845BD50113D5751F0029FACB /* Project object */;
 }

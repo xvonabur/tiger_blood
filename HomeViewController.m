@@ -17,6 +17,9 @@ static NSString* kAppId = @"243607465668519";
 @implementation HomeViewController
 @synthesize label = _label, facebook = _facebook;
 @synthesize table_view;
+//@synthesize fetchedResultsController, managedObjectContext;
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 // UIViewController
 
