@@ -24,4 +24,6 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSArray *movies;
 
+-(id)initWithTabBar;
+
 @end

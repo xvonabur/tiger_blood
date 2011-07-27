@@ -21,7 +21,7 @@
     
     UITabBarController*  tabBarController;
     UIWindow *window;
-    HomeViewController* controller;
+    HomeViewController* myViewController;
     TableViewController* table_controller;
     
 }
@@ -32,8 +32,8 @@
 
 - (NSString *)applicationDocumentsDirectory;
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) UIWindow *window;
+@property (nonatomic, retain) UITabBarController *tabBarController;
 
 
 

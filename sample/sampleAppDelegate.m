@@ -8,6 +8,7 @@
 
 #import "sampleAppDelegate.h"
 #import "HomeViewController.h"
+#import "TableViewController.h"
 
 
 @implementation sampleAppDelegate
@@ -62,9 +63,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-
-    
   
     table_controller.managedObjectContext = self.managedObjectContext;  
     //NSManagedObjectContext *context = [self managedObjectContext];
@@ -75,11 +73,10 @@
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDesc]; 
     NSError *error;
-    NSArray *temp_arr;
+    NSArray * temp_arr;
     temp_arr = [managedObjectContext executeFetchRequest:request error:&error];
-   
 //initial inserting data to db
-    if ([temp_arr count] == 0)
+       if ([[managedObjectContext executeFetchRequest:request error:&error] count] == 0)
     {
         NSManagedObject *newMovie;
         newMovie = [NSEntityDescription
@@ -103,22 +100,71 @@
         [managedObjectContext save:&error];
 
     }
-  //  [temp_arr release];
+  //[temp_arr autorelease];
     [request release];
 
-    controller = [[HomeViewController alloc] init];
-    controller.view.frame = CGRectMake(0, 20, 320, 460);
+//Tab bar creation for facebook sdk
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+ 
+    // set up a local nav controller which we will reuse for each view controller
+    UINavigationController *localNavigationController;
+    
+    // create tab bar controller and array to hold the view controllers
+    tabBarController = [[UITabBarController alloc] init];
+    NSMutableArray *localControllersArray = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    // setup the first view controller (Root view controller)
+   // HomeViewController *myViewController;
+    myViewController = [[HomeViewController alloc] initWithTabBar];
+    
+    // create the nav controller and add the root view controller as its first view
+    localNavigationController = [[UINavigationController alloc] initWithRootViewController:myViewController];
+    
+    // add the new nav controller (with the root view controller inside it)
+    // to the array of controllers
+    [localControllersArray addObject:localNavigationController];
+    
+    // release since we are done with this for now
+    [localNavigationController release];
+    [myViewController release];
+    
+    // setup the second view controller just like the firstSecondViewController *secondViewController;
+    TableViewController *table_contr;
+    table_contr = [[TableViewController alloc] initWithTabBar];
+    localNavigationController = [[UINavigationController alloc]
+                                 initWithRootViewController:table_contr];
+    [localControllersArray addObject:localNavigationController];
+    [localNavigationController release];
+    [table_contr release];
+    
+    // load up our tab bar controller with the view controllers
+    tabBarController.viewControllers = localControllersArray;
+    
+    // release the array because the tab bar controller now has it
+    [localControllersArray release];
+    
+    // add the tabBarController as a subview in the window
+    [window addSubview:tabBarController.view];
+    
+    // need this last line to display the window (and tab bar controller)
+    [window makeKeyAndVisible];
+    
+
+    
+    
+//   controller = [[HomeViewController alloc] init];
+//    controller.view.frame = CGRectMake(0, 20, 320, 460);
     
     // Override point for customization after application launch.
-    [window addSubview:controller.view];
+//    [window addSubview:controller.view];
    // [window addSubview:tabBarController.view];
-    [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [[controller facebook] handleOpenURL:url];
+    return [[myViewController facebook] handleOpenURL:url];
 }
 
 
@@ -166,7 +212,7 @@
 {
     
     [window release];
-    [controller release];
+    [myViewController release];
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];

@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		84140A2B13D577CD0093E775 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A2913D577CD0093E775 /* HomeViewController.m */; };
 		84140A2C13D577CD0093E775 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84140A2A13D577CD0093E775 /* HomeViewController.xib */; };
-		84140A3113D577E90093E775 /* ChannelsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A2F13D577E90093E775 /* ChannelsViewController.m */; };
-		84140A3213D577E90093E775 /* ChannelsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84140A3013D577E90093E775 /* ChannelsViewController.xib */; };
 		84140A4D13D5797E0093E775 /* Facebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 84140A3513D5797E0093E775 /* Facebook.m */; };
 		84140A4E13D5797E0093E775 /* FBConnect.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84140A3613D5797E0093E775 /* FBConnect.bundle */; };
 		84140A4F13D5797E0093E775 /* FBDialog.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84140A3813D5797E0093E775 /* FBDialog.bundle */; };
@@ -30,6 +28,8 @@
 		8445D11313DBEC73006B62B6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8445D11213DBEC73006B62B6 /* CoreData.framework */; };
 		8445D11E13DC02C1006B62B6 /* sample.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 8445D11D13DC02C1006B62B6 /* sample.sqlite */; };
 		8445D12113DC04E3006B62B6 /* Movies.m in Sources */ = {isa = PBXBuildFile; fileRef = 8445D12013DC04E3006B62B6 /* Movies.m */; };
+		844A8D9813DFF8A00062A0BE /* ChannelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844A8D9613DFF89F0062A0BE /* ChannelViewController.m */; };
+		844A8D9913DFF8A00062A0BE /* ChannelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 844A8D9713DFF8A00062A0BE /* ChannelViewController.xib */; };
 		845BD50F13D5751F0029FACB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD50E13D5751F0029FACB /* UIKit.framework */; };
 		845BD51113D5751F0029FACB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51013D5751F0029FACB /* Foundation.framework */; };
 		845BD51313D5751F0029FACB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845BD51213D5751F0029FACB /* CoreGraphics.framework */; };
@@ -44,9 +44,6 @@
 		84140A2813D577CD0093E775 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = ../HomeViewController.h; sourceTree = "<group>"; };
 		84140A2913D577CD0093E775 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = ../HomeViewController.m; sourceTree = "<group>"; };
 		84140A2A13D577CD0093E775 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = ../HomeViewController.xib; sourceTree = "<group>"; };
-		84140A2E13D577E90093E775 /* ChannelsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelsViewController.h; sourceTree = "<group>"; };
-		84140A2F13D577E90093E775 /* ChannelsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelsViewController.m; sourceTree = "<group>"; };
-		84140A3013D577E90093E775 /* ChannelsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelsViewController.xib; sourceTree = "<group>"; };
 		84140A3413D5797E0093E775 /* Facebook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Facebook.h; sourceTree = "<group>"; };
 		84140A3513D5797E0093E775 /* Facebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Facebook.m; sourceTree = "<group>"; };
 		84140A3613D5797E0093E775 /* FBConnect.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBConnect.bundle; sourceTree = "<group>"; };
@@ -81,6 +78,9 @@
 		8445D11D13DC02C1006B62B6 /* sample.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.sqlite; sourceTree = "<group>"; };
 		8445D11F13DC04E3006B62B6 /* Movies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Movies.h; path = ../Movies.h; sourceTree = "<group>"; };
 		8445D12013DC04E3006B62B6 /* Movies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Movies.m; path = ../Movies.m; sourceTree = "<group>"; };
+		844A8D9513DFF89F0062A0BE /* ChannelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelViewController.h; sourceTree = "<group>"; };
+		844A8D9613DFF89F0062A0BE /* ChannelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelViewController.m; sourceTree = "<group>"; };
+		844A8D9713DFF8A00062A0BE /* ChannelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelViewController.xib; sourceTree = "<group>"; };
 		845BD50A13D5751F0029FACB /* sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845BD50E13D5751F0029FACB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		845BD51013D5751F0029FACB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -168,10 +168,11 @@
 				845BD51E13D575200029FACB /* sampleAppDelegate.m */,
 				84140A2813D577CD0093E775 /* HomeViewController.h */,
 				84140A2913D577CD0093E775 /* HomeViewController.m */,
-				84140A2E13D577E90093E775 /* ChannelsViewController.h */,
-				84140A2F13D577E90093E775 /* ChannelsViewController.m */,
 				8437BF9C13D728A3000261D1 /* TableViewController.h */,
 				8437BF9D13D728A3000261D1 /* TableViewController.m */,
+				844A8D9513DFF89F0062A0BE /* ChannelViewController.h */,
+				844A8D9613DFF89F0062A0BE /* ChannelViewController.m */,
+				844A8D9713DFF8A00062A0BE /* ChannelViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -181,7 +182,6 @@
 			children = (
 				84140A2A13D577CD0093E775 /* HomeViewController.xib */,
 				845BD52013D575200029FACB /* MainWindow.xib */,
-				84140A3013D577E90093E775 /* ChannelsViewController.xib */,
 				8437BF9E13D728A3000261D1 /* TableViewController.xib */,
 			);
 			name = Views;
@@ -299,11 +299,11 @@
 				845BD51913D575200029FACB /* InfoPlist.strings in Resources */,
 				845BD52213D575200029FACB /* MainWindow.xib in Resources */,
 				84140A2C13D577CD0093E775 /* HomeViewController.xib in Resources */,
-				84140A3213D577E90093E775 /* ChannelsViewController.xib in Resources */,
 				84140A4E13D5797E0093E775 /* FBConnect.bundle in Resources */,
 				84140A4F13D5797E0093E775 /* FBDialog.bundle in Resources */,
 				8437BFA013D728A4000261D1 /* TableViewController.xib in Resources */,
 				8445D11E13DC02C1006B62B6 /* sample.sqlite in Resources */,
+				844A8D9913DFF8A00062A0BE /* ChannelViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,7 +317,6 @@
 				845BD51C13D575200029FACB /* main.m in Sources */,
 				845BD51F13D575200029FACB /* sampleAppDelegate.m in Sources */,
 				84140A2B13D577CD0093E775 /* HomeViewController.m in Sources */,
-				84140A3113D577E90093E775 /* ChannelsViewController.m in Sources */,
 				84140A4D13D5797E0093E775 /* Facebook.m in Sources */,
 				84140A5013D5797E0093E775 /* FBDialog.m in Sources */,
 				84140A5113D5797E0093E775 /* FBLoginDialog.m in Sources */,
@@ -332,6 +331,7 @@
 				8437BF9F13D728A4000261D1 /* TableViewController.m in Sources */,
 				8445D11113DBEA2A006B62B6 /* sample.xcdatamodeld in Sources */,
 				8445D12113DC04E3006B62B6 /* Movies.m in Sources */,
+				844A8D9813DFF8A00062A0BE /* ChannelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

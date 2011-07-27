@@ -267,6 +267,19 @@ static NSString* kAppId = @"243607465668519";
     // e.g. self.myOutlet = nil;
 }
 
-
+-(id) initWithTabBar {
+    if ([self init]) {
+        //this is the label on the tab button itself
+        self.title = @"Home";
+        
+        //use whatever image you want and add it to your project
+      //  self.tabBarItem.image = [UIImage imageNamed:@"name_gray.png"];
+        
+        // set the long name shown in the navigation bar at the top
+        self.navigationItem.title=@"Home";
+    }
+    return self;
+    
+}
 
 @end

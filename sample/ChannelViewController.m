@@ -1,17 +1,15 @@
 //
-//  TableViewController.m
+//  ChannelViewController.m
 //  sample
 //
-//  Created by xvonabur on 7/20/11.
+//  Created by xvonabur on 7/27/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TableViewController.h"
-#import "sampleAppDelegate.h"
+#import "ChannelViewController.h"
 
 
-@implementation TableViewController
-@synthesize fetchedResultsController, managedObjectContext, movies;
+@implementation ChannelViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -24,9 +22,6 @@
 
 - (void)dealloc
 {
-    self.movies = nil;
-    self.managedObjectContext = nil;
-    
     [super dealloc];
 }
 
@@ -42,28 +37,13 @@
 
 - (void)viewDidLoad
 {
-      sampleAppDelegate *appDelegate;
-      appDelegate = [[UIApplication sharedApplication] delegate];
-      NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    
-    //NSManagedObjectContext *context = [self managedObjectContext];
-    NSEntityDescription *entityDesc = [NSEntityDescription    
-                                       entityForName:@"Movies" inManagedObjectContext:context];
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    [request setEntity:entityDesc]; 
-    NSError *error;
-    self.movies = [context executeFetchRequest:request error:&error];
-
-
-         
-    [request release];
+    [super viewDidLoad];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [super viewDidLoad];
 }
 
 - (void)viewDidUnload
@@ -103,17 +83,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-   
-    return 1;
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-   
-   
-    return [movies count];
-    
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -122,18 +101,13 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    Movies *info = [movies objectAtIndex:indexPath.row];
-    cell.textLabel.text = info.name;
-
-
-    // Set up the cell
-    return cell;
-   
-}
+    // Configure the cell...
     
+    return cell;
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -187,21 +161,5 @@
      [detailViewController release];
      */
 }
-
--(id) initWithTabBar {
-    if ([self init]) {
-        //this is the label on the tab button itself
-        self.title = @"Test Table";
-        
-        //use whatever image you want and add it to your project
-      //  self.tabBarItem.image = [UIImage imageNamed:@"name_gray.png"];
-        
-        // set the long name shown in the navigation bar at the top
-        self.navigationItem.title=@"Test Table";
-    }
-    return self;
-    
-}
-
 
 @end

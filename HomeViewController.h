@@ -40,5 +40,6 @@ FBSessionDelegate>{
 
 -(IBAction)fbButtonClick:(id)sender;
 -(IBAction)publishStream:(id)sender;
+-(id)initWithTabBar;
 
 @end
